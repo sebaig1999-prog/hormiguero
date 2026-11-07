@@ -1,0 +1,13 @@
+# Lo genera Flutter o la compilación (GitHub Actions lo recrea cada vez)
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+.idea/
+*.iml
+android/
+ios/
+test/
+pubspec.lock
+Hormiguero.apk

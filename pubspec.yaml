@@ -1,0 +1,17 @@
+name: hormiguero
+description: "Hormiguero: anota tus gastos hormiga en dos toques."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.10.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/hormiguero.html
