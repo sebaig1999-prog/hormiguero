@@ -1,45 +1,26 @@
 # Hormiguero
 
-App para anotar **gastos hormiga** en dos toques: marcas el monto, tocas la categoría y queda guardado.
-Lleva la cuenta contra un **tope mensual**, muestra boletas por día, gráfico, categorías y cuánto sumarías en un año.
+App para anotar **gastos hormiga** en dos toques, contra un tope mensual.
+Funciona sin internet y se instala en el teléfono desde Chrome.
 
-## Descargar el APK
+**Abrir / instalar:** https://sebaig1999-prog.github.io/hormiguero/
 
-1. Entra a **[Releases](../../releases/latest)** (columna derecha del repo).
-2. Descarga **`Hormiguero.apk`** desde el teléfono.
-3. Ábrelo y acepta *instalar apps de esta fuente* cuando Android lo pida.
+## Publicarla (una sola vez)
+1. El repositorio tiene que ser **público** (GitHub Pages gratis no publica repos privados).
+2. **Add file → Upload files** y arrastra los 6 archivos: `index.html`, `manifest.webmanifest`,
+   `sw.js`, `icon-192.png`, `icon-512.png`, `maskable-512.png` (y este `README.md`). **Commit changes**.
+3. **Settings → Pages → Source: Deploy from a branch → Branch: main / (root) → Save.**
+4. A los 1 o 2 minutos queda en la dirección de arriba.
 
-**Para actualizar** instala el APK nuevo encima del anterior: tus gastos se mantienen.
-No desinstales la app, porque al desinstalar Android borra los gastos guardados.
+## Instalar en el teléfono (Android, Chrome)
+Abre la dirección en Chrome y toca **Instalar** en el aviso verde de arriba,
+o en el menú **⋮ → Instalar app**. Queda el ícono de Hormiguero, abre a pantalla completa y sin internet.
 
-## Cómo se compila
+## Actualizar
+Sube los archivos nuevos al mismo repositorio (reemplazan a los anteriores).
+El teléfono toma la versión nueva la próxima vez que abras la app con internet. Tus gastos se mantienen.
 
-Cada vez que se sube un cambio a `main`, **GitHub Actions** compila el APK solo
-(pestaña **Actions → Compilar APK**) y publica una versión nueva en **Releases** (`v1.0.N`).
-También se puede lanzar a mano con **Run workflow**.
-
-Para compilarlo en el PC (necesita Flutter): `build_apk.bat` en Windows o `bash build_apk.sh` en Linux.
-
-## Qué hay en el repo
-
-| Ruta | Qué es |
-|---|---|
-| `assets/hormiguero.html` | La app completa. Funciona sin internet; también se abre en el PC con doble clic |
-| `lib/main.dart` | La envuelve en una app Android (Flutter + WebView) |
-| `tool/setup.dart` | Pone nombre, ícono y firma a la parte Android que genera `flutter create` |
-| `icons/` | Ícono verde con la hormiga |
-| `signing/hormiguero.keystore` | Llave con que se firman **todos** los APK (ver abajo) |
-| `.github/workflows/apk.yml` | La receta que compila y publica el APK |
-
-## La firma (no borrar `signing/`)
-
-Android solo deja instalar una versión nueva encima de la anterior si las dos vienen firmadas con la misma llave.
-Por eso todos los APK se firman con `signing/hormiguero.keystore`, y la compilación revisa la huella antes de publicar.
-Si esa llave se pierde o cambia, habría que desinstalar la app (y perder los gastos) para instalar la nueva.
-
-El repo es privado. Si algún día lo haces público, mueve la llave a un *secret* de GitHub primero.
-
-## Respaldo de los gastos
-
-Los gastos viven en el teléfono. En **Resumen → Ajustes → Copiar como CSV** puedes sacar una copia
-y pegarla en una planilla, un correo o WhatsApp.
+## Importante
+- Los gastos quedan guardados solo en tu teléfono. Saca un respaldo de vez en cuando:
+  **Resumen → Ajustes → Exportar CSV**, y guárdalo en Drive o en tu correo.
+- Si desinstalas la app o borras los datos de Chrome, se pierde lo que no hayas respaldado.
